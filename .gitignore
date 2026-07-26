@@ -1,0 +1,5 @@
+.DS_Store
+
+# Raw source recordings — keep them locally, commit only the encoded
+# web versions in assets/demos/ (see assets/demos/README.md).
+assets/demos/clip*.mp4

@@ -377,6 +377,66 @@ footer{padding:2.6rem 0;border-top:1px solid var(--line-2);font-size:.82rem;colo
   .foot-contact{text-align:left}}
 
 /* ============================================================
+   DEMOS
+   ============================================================ */
+.demos{background:var(--ink-2);border-bottom:1px solid var(--line-2)}
+.demo-grid{display:grid;grid-template-columns:1.32fr .68fr;gap:1.3rem;margin-top:3rem;align-items:start}
+@media(max-width:980px){.demo-grid{grid-template-columns:1fr;gap:1.6rem}}
+
+/* ---- player ---- */
+.demo-player{border:1px solid var(--line);border-radius:12px;background:var(--ink);
+  overflow:hidden;box-shadow:0 30px 60px -32px rgba(0,0,0,.9);
+  position:sticky;top:74px}
+/* stacked, the caption sits right on top of the chapter that repeats it */
+@media(max-width:980px){.demo-player{position:static}.demo-cap{display:none}}
+.demo-hd{display:flex;align-items:center;gap:.6rem;padding:.6rem .85rem;
+  border-bottom:1px solid var(--line-2);font-family:var(--mono);font-size:.63rem;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--cream-3)}
+.demo-hd .demo-hd-n{color:var(--amber);flex:none}
+.demo-hd .demo-hd-t{color:var(--cream-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.demo-hd .demo-hd-i{margin-left:auto;flex:none;letter-spacing:.1em}
+.demo-hd .demo-hd-d{flex:none;color:var(--amber-soft)}
+.demo-hd .demo-hd-d::before{content:"·";color:var(--cream-3);margin-right:.55em}
+@media(max-width:520px){.demo-hd .demo-hd-i{display:none}.demo-hd .demo-hd-d{margin-left:auto}
+  .demo-hd .demo-hd-d::before{content:none}}
+.demo-stage{position:relative;aspect-ratio:16/9;background:#0c0906}
+.demo-stage video{width:100%;height:100%;display:block;object-fit:contain;background:#0c0906}
+.demo-fallback{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;
+  justify-content:center;gap:.55rem;text-align:center;padding:1.5rem;
+  background:radial-gradient(ellipse 70% 70% at 50% 45%,rgba(240,165,43,.09),transparent 70%)}
+.demo-player.empty .demo-fallback{display:flex}
+.demo-player.empty video{visibility:hidden}
+.demo-fallback-i{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--amber)}
+.demo-fallback-t{font-size:.9rem;color:var(--cream-3);max-width:34ch;line-height:1.5}
+.demo-cap{padding:.9rem 1rem;border-top:1px solid var(--line-2);font-size:.9rem;color:var(--cream-2);
+  line-height:1.5}
+
+/* ---- chapter list ---- */
+.chapters{display:grid;gap:.55rem}
+.chapter{display:grid;grid-template-columns:auto 1fr;gap:.8rem;align-items:start;text-align:left;
+  background:var(--ink);border:1px solid var(--line-2);border-radius:11px;padding:.9rem 1rem 1rem;
+  color:inherit;font-family:inherit;cursor:pointer;position:relative;overflow:hidden;
+  transition:border-color .25s,background .25s,transform .2s}
+.chapter:hover{border-color:rgba(240,165,43,.3);transform:translateY(-2px)}
+.chapter:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.chapter[aria-current="true"]{border-color:rgba(240,165,43,.5);
+  background:linear-gradient(155deg,rgba(240,165,43,.1),rgba(208,69,28,.05))}
+.chapter-meta{display:grid;gap:.4rem;justify-items:start;padding-top:.25rem}
+.chapter-n{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;color:var(--cream-3)}
+.chapter[aria-current="true"] .chapter-n{color:var(--amber)}
+.chapter-dur{font-family:var(--mono);font-size:.6rem;letter-spacing:.05em;color:var(--cream-3);
+  border:1px solid var(--line-2);border-radius:4px;padding:.12rem .34rem}
+.chapter[aria-current="true"] .chapter-dur{border-color:rgba(240,165,43,.3);color:var(--amber-soft)}
+.chapter-t{display:block;font-family:var(--serif);font-size:1.02rem;font-weight:600;
+  letter-spacing:-.015em;line-height:1.2;margin-bottom:.3rem}
+.chapter-d{display:block;font-size:.82rem;color:var(--cream-3);line-height:1.45}
+.chapter-bar{position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--amber);
+  transition:width .25s linear;pointer-events:none}
+.demo-foot{margin:1.6rem 0 0;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--cream-3)}
+
+/* ============================================================
    REVEAL
    ============================================================ */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
@@ -400,6 +460,7 @@ footer{padding:2.6rem 0;border-top:1px solid var(--line-2);font-size:.82rem;colo
     <div class="nav-links">
       <a href="#problema"><span data-lang="es">El problema</span><span data-lang="en">The problem</span></a>
       <a href="#magia"><span data-lang="es">La clase grabada</span><span data-lang="en">Recorded class</span></a>
+      <a href="#demos"><span data-lang="es">Demo</span><span data-lang="en">Demo</span></a>
       <a href="#ia"><span data-lang="es">La IA</span><span data-lang="en">The AI</span></a>
       <a href="#modulos"><span data-lang="es">Módulos</span><span data-lang="en">Modules</span></a>
       <a href="#estado"><span data-lang="es">Estado</span><span data-lang="en">Status</span></a>
@@ -652,6 +713,122 @@ footer{padding:2.6rem 0;border-top:1px solid var(--line-2);font-size:.82rem;colo
 </section>
 
 <div class="rule"></div>
+
+<!-- ================= DEMOS =================
+     Drop the clips in assets/demos/ with these names (or edit
+     data-src below). See assets/demos/README.md.
+     ========================================================= -->
+<section class="sect demos" id="demos">
+  <div class="wrap">
+    <div class="rv" style="max-width:60ch">
+      <p class="eyebrow"><span data-lang="es">Demo</span><span data-lang="en">Demo</span></p>
+      <h2 style="margin-top:1.2rem">
+        <span data-lang="es">Una clase entera,<br><em>de principio a fin</em>.</span>
+        <span data-lang="en">A full lesson,<br><em>start to finish</em>.</span>
+      </h2>
+      <p class="lead" style="margin-top:1.4rem">
+        <span data-lang="es">Cuatro capítulos grabados sobre el prototipo real: del perfil del alumno al cobro de la clase, pasando por todo lo que ocurre en medio —incluida la llamada que la interrumpe.</span>
+        <span data-lang="en">Four chapters recorded on the real prototype: from the student profile to charging for the lesson, including everything in between — the interrupting phone call included.</span>
+      </p>
+    </div>
+
+    <div class="demo-grid rv">
+      <!-- player -->
+      <div class="demo-player" id="demo-player">
+        <div class="demo-hd">
+          <span class="demo-hd-n" id="demo-hd-n">01</span>
+          <span class="demo-hd-t" id="demo-hd-t"></span>
+          <span class="demo-hd-i"><span data-lang="es">Prototipo v1</span><span data-lang="en">Prototype v1</span></span>
+          <span class="demo-hd-d" id="demo-hd-d"></span>
+        </div>
+        <div class="demo-stage">
+          <video id="demo-video" controls playsinline preload="metadata"
+                 poster="assets/demos/01-perfil.jpg"></video>
+          <div class="demo-fallback">
+            <p class="demo-fallback-i"><span data-lang="es">Clip en camino</span><span data-lang="en">Clip on the way</span></p>
+            <p class="demo-fallback-t">
+              <span data-lang="es">Este capítulo aún no está subido. Coloca el archivo en <code>assets/demos/</code> y aparecerá aquí.</span>
+              <span data-lang="en">This chapter isn't uploaded yet. Drop the file into <code>assets/demos/</code> and it shows up here.</span>
+            </p>
+          </div>
+        </div>
+        <p class="demo-cap" id="demo-cap"></p>
+      </div>
+
+      <!-- chapters -->
+      <div class="chapters" role="group" aria-label="Capítulos de la demo / Demo chapters">
+        <button type="button" class="chapter" aria-current="true"
+                data-src="assets/demos/01-perfil.mp4"
+                data-poster="assets/demos/01-perfil.jpg">
+          <span class="chapter-meta"><span class="chapter-n">01</span><span class="chapter-dur">2:26</span></span>
+          <span>
+            <span class="chapter-t">
+              <span data-lang="es">El perfil del alumno</span><span data-lang="en">The student profile</span>
+            </span>
+            <span class="chapter-d">
+              <span data-lang="es">Instrumento, nivel, motivación y objetivo en sus palabras. Cuanto mejor definido está el perfil, mejores son las sugerencias de la IA.</span>
+              <span data-lang="en">Instrument, level, motivation and goal in their own words. The sharper the profile, the better the AI's suggestions.</span>
+            </span>
+          </span>
+          <span class="chapter-bar"></span>
+        </button>
+
+        <button type="button" class="chapter"
+                data-src="assets/demos/02-clase.mp4"
+                data-poster="assets/demos/02-clase.jpg">
+          <span class="chapter-meta"><span class="chapter-n">02</span><span class="chapter-dur">10:26</span></span>
+          <span>
+            <span class="chapter-t">
+              <span data-lang="es">Dando la clase</span><span data-lang="en">Teaching the lesson</span>
+            </span>
+            <span class="chapter-d">
+              <span data-lang="es">Pizarra, grabación y loop en vivo: las herramientas trabajando mientras la clase ocurre.</span>
+              <span data-lang="en">Whiteboard, recording and loop, live: the tools working while the lesson happens.</span>
+            </span>
+          </span>
+          <span class="chapter-bar"></span>
+        </button>
+
+        <button type="button" class="chapter"
+                data-src="assets/demos/03-voz.mp4"
+                data-poster="assets/demos/03-voz.jpg">
+          <span class="chapter-meta"><span class="chapter-n">03</span><span class="chapter-dur">3:31</span></span>
+          <span>
+            <span class="chapter-t">
+              <span data-lang="es">Una llamada interrumpe</span><span data-lang="en">A call interrupts</span>
+            </span>
+            <span class="chapter-d">
+              <span data-lang="es">Suena el teléfono en mitad de la clase. El profesor dicta el recordatorio por voz y queda registrado en el sistema sin tocar el teclado.</span>
+              <span data-lang="en">The phone rings mid-lesson. The teacher dictates the reminder by voice and it lands in the system without touching the keyboard.</span>
+            </span>
+          </span>
+          <span class="chapter-bar"></span>
+        </button>
+
+        <button type="button" class="chapter"
+                data-src="assets/demos/04-sugerencias-cobro.mp4"
+                data-poster="assets/demos/04-sugerencias-cobro.jpg">
+          <span class="chapter-meta"><span class="chapter-n">04</span><span class="chapter-dur">1:03</span></span>
+          <span>
+            <span class="chapter-t">
+              <span data-lang="es">Sugerencias y cobro</span><span data-lang="en">Suggestions &amp; payment</span>
+            </span>
+            <span class="chapter-d">
+              <span data-lang="es">La clase sigue: la IA propone canciones nuevas según los gustos y el nivel del alumno. Al terminar, el profesor cobra la clase desde la misma pantalla.</span>
+              <span data-lang="en">The lesson continues: the AI suggests new songs from the student's taste and level. At the end, the teacher charges the lesson from the same screen.</span>
+            </span>
+          </span>
+          <span class="chapter-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <p class="demo-foot rv">
+      <span data-lang="es">Grabado sobre el prototipo real · Sin montaje ni maquetas</span>
+      <span data-lang="en">Recorded on the real prototype · No editing, no mockups</span>
+    </p>
+  </div>
+</section>
 
 <!-- ================= MODULES ================= -->
 <section class="sect" id="modulos">
@@ -1007,7 +1184,103 @@ footer{padding:2.6rem 0;border-top:1px solid var(--line-2);font-size:.82rem;colo
 })();
 
 /* ------------------------------------------------------------
-   3. Feedback form
+   3. Demo chapter player
+   ------------------------------------------------------------
+   One <video>, four chapters. Clicking a chapter swaps the source;
+   when a clip ends it rolls into the next one. If a file is missing
+   the player shows the "clip on the way" placeholder instead of a
+   broken frame, so the page survives before the clips are uploaded.
+   ------------------------------------------------------------ */
+(function(){
+  var video    = document.getElementById('demo-video'),
+      player   = document.getElementById('demo-player'),
+      hdN      = document.getElementById('demo-hd-n'),
+      hdT      = document.getElementById('demo-hd-t'),
+      hdD      = document.getElementById('demo-hd-d'),
+      cap      = document.getElementById('demo-cap'),
+      chapters = Array.prototype.slice.call(document.querySelectorAll('.chapter'));
+
+  if(!video || !player || !chapters.length) return;
+
+  var current = -1, probes = {};
+
+  /* A missing clip doesn't reliably fire 'error' — some servers leave the
+     element stalled instead — so ask the server directly. Resolves to
+     false only when the file is genuinely not there; null means we can't
+     tell (opened over file://, CORS…) and we let the video try anyway. */
+  function available(src){
+    if(!(src in probes)){
+      probes[src] = (window.fetch
+        ? fetch(src,{method:'HEAD'}).then(function(r){return r.ok;})
+        : Promise.resolve(null)
+      ).catch(function(){return null;});
+    }
+    return probes[src];
+  }
+
+  function select(i, autoplay){
+    var ch = chapters[i];
+    if(!ch) return;
+
+    if(i !== current){
+      current = i;
+      chapters.forEach(function(c,j){
+        c.setAttribute('aria-current', String(j===i));
+        c.querySelector('.chapter-bar').style.width = '0%';
+      });
+      hdN.textContent = ch.querySelector('.chapter-n').textContent;
+      hdT.innerHTML   = ch.querySelector('.chapter-t').innerHTML;
+      hdD.textContent = ch.querySelector('.chapter-dur').textContent;
+      cap.innerHTML   = ch.querySelector('.chapter-d').innerHTML;
+
+      player.classList.remove('empty');
+      video.poster = ch.getAttribute('data-poster') || '';
+      video.src    = ch.getAttribute('data-src');
+      video.load();
+
+      available(ch.getAttribute('data-src')).then(function(ok){
+        if(current === i && ok === false) player.classList.add('empty');
+      });
+    }
+
+    if(autoplay) play();
+  }
+
+  function play(){
+    var p = video.play();
+    /* autoplay with sound can be blocked — retry muted rather than fail */
+    if(p && p.catch) p.catch(function(){
+      video.muted = true;
+      var q = video.play();
+      if(q && q.catch) q.catch(function(){});
+    });
+  }
+
+  chapters.forEach(function(ch,i){
+    ch.addEventListener('click', function(){ select(i, true); });
+  });
+
+  video.addEventListener('error', function(){ player.classList.add('empty'); });
+  video.addEventListener('loadeddata', function(){ player.classList.remove('empty'); });
+
+  video.addEventListener('timeupdate', function(){
+    var ch = chapters[current];
+    if(!ch || !video.duration) return;
+    ch.querySelector('.chapter-bar').style.width =
+      Math.min(100, (video.currentTime / video.duration) * 100) + '%';
+  });
+
+  video.addEventListener('ended', function(){
+    var ch = chapters[current];
+    if(ch) ch.querySelector('.chapter-bar').style.width = '100%';
+    if(current < chapters.length - 1) select(current + 1, true);
+  });
+
+  select(0, false);
+})();
+
+/* ------------------------------------------------------------
+   4. Feedback form
    ------------------------------------------------------------
    SETUP — pick one:
    a) Leave ENDPOINT empty  → the form opens WhatsApp to Julio with
