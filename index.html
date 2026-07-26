@@ -380,7 +380,16 @@ footer{padding:2.6rem 0;border-top:1px solid var(--line-2);font-size:.82rem;colo
    DEMOS
    ============================================================ */
 .demos{background:var(--ink-2);border-bottom:1px solid var(--line-2)}
-.demo-grid{display:grid;grid-template-columns:1.32fr .68fr;gap:1.3rem;margin-top:3rem;align-items:start}
+
+/* The player breaks out past the page's 1180px column — it's the point of this
+   section and deserves the room — while the heading above stays aligned with
+   every other section. Collapses to zero breakout on narrow screens. */
+.demo-wide{
+  --bo:max(0px,(min(1440px,100vw - 2 * var(--pad)) - 100%) / 2);
+  margin-left:calc(-1 * var(--bo));
+  margin-right:calc(-1 * var(--bo));
+}
+.demo-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:1.5rem;margin-top:3rem;align-items:start}
 @media(max-width:980px){.demo-grid{grid-template-columns:1fr;gap:1.6rem}}
 
 /* ---- player ---- */
@@ -389,9 +398,9 @@ footer{padding:2.6rem 0;border-top:1px solid var(--line-2);font-size:.82rem;colo
   position:sticky;top:74px}
 /* stacked, the caption sits right on top of the chapter that repeats it */
 @media(max-width:980px){.demo-player{position:static}.demo-cap{display:none}}
-.demo-hd{display:flex;align-items:center;gap:.6rem;padding:.6rem .85rem;
-  border-bottom:1px solid var(--line-2);font-family:var(--mono);font-size:.63rem;
-  letter-spacing:.13em;text-transform:uppercase;color:var(--cream-3)}
+.demo-hd{display:flex;align-items:center;gap:.6rem;padding:.7rem .95rem;
+  border-bottom:1px solid var(--line-2);font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--cream-2)}
 .demo-hd .demo-hd-n{color:var(--amber);flex:none}
 .demo-hd .demo-hd-t{color:var(--cream-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .demo-hd .demo-hd-i{margin-left:auto;flex:none;letter-spacing:.1em}
@@ -409,32 +418,33 @@ footer{padding:2.6rem 0;border-top:1px solid var(--line-2);font-size:.82rem;colo
 .demo-fallback-i{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;
   text-transform:uppercase;color:var(--amber)}
 .demo-fallback-t{font-size:.9rem;color:var(--cream-3);max-width:34ch;line-height:1.5}
-.demo-cap{padding:.9rem 1rem;border-top:1px solid var(--line-2);font-size:.9rem;color:var(--cream-2);
-  line-height:1.5}
+.demo-cap{padding:1rem 1.15rem;border-top:1px solid var(--line-2);font-size:1.02rem;color:var(--cream-2);
+  line-height:1.55}
 
 /* ---- chapter list ---- */
-.chapters{display:grid;gap:.55rem}
-.chapter{display:grid;grid-template-columns:auto 1fr;gap:.8rem;align-items:start;text-align:left;
-  background:var(--ink);border:1px solid var(--line-2);border-radius:11px;padding:.9rem 1rem 1rem;
+.chapters{display:grid;gap:.65rem}
+.chapter{display:grid;grid-template-columns:auto 1fr;gap:.95rem;align-items:start;text-align:left;
+  background:var(--ink);border:1px solid var(--line-2);border-radius:11px;padding:1.05rem 1.2rem 1.15rem;
   color:inherit;font-family:inherit;cursor:pointer;position:relative;overflow:hidden;
   transition:border-color .25s,background .25s,transform .2s}
 .chapter:hover{border-color:rgba(240,165,43,.3);transform:translateY(-2px)}
 .chapter:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 .chapter[aria-current="true"]{border-color:rgba(240,165,43,.5);
   background:linear-gradient(155deg,rgba(240,165,43,.1),rgba(208,69,28,.05))}
-.chapter-meta{display:grid;gap:.4rem;justify-items:start;padding-top:.25rem}
-.chapter-n{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;color:var(--cream-3)}
+.chapter-meta{display:grid;gap:.45rem;justify-items:start;padding-top:.3rem}
+.chapter-n{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;color:var(--cream-3)}
 .chapter[aria-current="true"] .chapter-n{color:var(--amber)}
-.chapter-dur{font-family:var(--mono);font-size:.6rem;letter-spacing:.05em;color:var(--cream-3);
-  border:1px solid var(--line-2);border-radius:4px;padding:.12rem .34rem}
+.chapter-dur{font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;color:var(--cream-3);
+  border:1px solid var(--line-2);border-radius:4px;padding:.14rem .38rem}
 .chapter[aria-current="true"] .chapter-dur{border-color:rgba(240,165,43,.3);color:var(--amber-soft)}
-.chapter-t{display:block;font-family:var(--serif);font-size:1.02rem;font-weight:600;
-  letter-spacing:-.015em;line-height:1.2;margin-bottom:.3rem}
-.chapter-d{display:block;font-size:.82rem;color:var(--cream-3);line-height:1.45}
+.chapter-t{display:block;font-family:var(--serif);font-size:1.2rem;font-weight:600;
+  letter-spacing:-.015em;line-height:1.2;margin-bottom:.4rem}
+.chapter-d{display:block;font-size:.98rem;color:var(--cream-2);line-height:1.55}
 .chapter-bar{position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--amber);
   transition:width .25s linear;pointer-events:none}
-.demo-foot{margin:1.6rem 0 0;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--cream-3)}
+/* margin-top only — the side margins belong to .demo-wide */
+.demo-foot{margin-top:1.8rem;margin-bottom:0;font-family:var(--mono);font-size:.75rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--cream-3)}
 
 /* ============================================================
    REVEAL
@@ -732,7 +742,7 @@ footer{padding:2.6rem 0;border-top:1px solid var(--line-2);font-size:.82rem;colo
       </p>
     </div>
 
-    <div class="demo-grid rv">
+    <div class="demo-grid demo-wide rv">
       <!-- player -->
       <div class="demo-player" id="demo-player">
         <div class="demo-hd">
@@ -790,32 +800,32 @@ footer{padding:2.6rem 0;border-top:1px solid var(--line-2);font-size:.82rem;colo
         </button>
 
         <button type="button" class="chapter"
-                data-src="assets/demos/03-voz.mp4"
-                data-poster="assets/demos/03-voz.jpg">
+                data-src="assets/demos/03-sugerencias.mp4"
+                data-poster="assets/demos/03-sugerencias.jpg">
           <span class="chapter-meta"><span class="chapter-n">03</span><span class="chapter-dur">3:31</span></span>
           <span>
             <span class="chapter-t">
-              <span data-lang="es">Una llamada interrumpe</span><span data-lang="en">A call interrupts</span>
+              <span data-lang="es">Sugerencias y envío de material</span><span data-lang="en">Suggestions and material sent</span>
             </span>
             <span class="chapter-d">
-              <span data-lang="es">Suena el teléfono en mitad de la clase. El profesor dicta el recordatorio por voz y queda registrado en el sistema sin tocar el teclado.</span>
-              <span data-lang="en">The phone rings mid-lesson. The teacher dictates the reminder by voice and it lands in the system without touching the keyboard.</span>
+              <span data-lang="es">La IA propone qué trabajar en la próxima clase según los gustos y el nivel del alumno. El profesor elige y le envía el material directamente.</span>
+              <span data-lang="en">The AI proposes what to work on next, from the student's taste and level. The teacher picks and sends them the material straight away.</span>
             </span>
           </span>
           <span class="chapter-bar"></span>
         </button>
 
         <button type="button" class="chapter"
-                data-src="assets/demos/04-sugerencias-cobro.mp4"
-                data-poster="assets/demos/04-sugerencias-cobro.jpg">
+                data-src="assets/demos/04-llamada-cobro.mp4"
+                data-poster="assets/demos/04-llamada-cobro.jpg">
           <span class="chapter-meta"><span class="chapter-n">04</span><span class="chapter-dur">1:03</span></span>
           <span>
             <span class="chapter-t">
-              <span data-lang="es">Sugerencias y cobro</span><span data-lang="en">Suggestions &amp; payment</span>
+              <span data-lang="es">La llamada y el cobro</span><span data-lang="en">The call and the payment</span>
             </span>
             <span class="chapter-d">
-              <span data-lang="es">La clase sigue: la IA propone canciones nuevas según los gustos y el nivel del alumno. Al terminar, el profesor cobra la clase desde la misma pantalla.</span>
-              <span data-lang="en">The lesson continues: the AI suggests new songs from the student's taste and level. At the end, the teacher charges the lesson from the same screen.</span>
+              <span data-lang="es">Suena el teléfono en mitad de la clase: el profesor deja el recordatorio dictado por voz, sin tocar el teclado, y sigue. Al terminar, el cobro queda registrado en el sistema.</span>
+              <span data-lang="en">The phone rings mid-lesson: the teacher leaves the reminder by voice, without touching the keyboard, and carries on. At the end, the payment is recorded in the system.</span>
             </span>
           </span>
           <span class="chapter-bar"></span>
@@ -823,7 +833,7 @@ footer{padding:2.6rem 0;border-top:1px solid var(--line-2);font-size:.82rem;colo
       </div>
     </div>
 
-    <p class="demo-foot rv">
+    <p class="demo-foot demo-wide rv">
       <span data-lang="es">Grabado sobre el prototipo real · Sin montaje ni maquetas</span>
       <span data-lang="en">Recorded on the real prototype · No editing, no mockups</span>
     </p>

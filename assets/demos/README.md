@@ -2,12 +2,16 @@
 
 The four chapters served by the `#demos` section:
 
-| # | File | Length | Size | Chapter |
-|---|---|---|---|---|
-| 01 | `01-perfil.mp4` | 2:26 | 17 MB | Defining the student profile → better AI suggestions |
-| 02 | `02-clase.mp4` | 10:26 | 86 MB | Teaching with the live tools (whiteboard, recording, loop) |
-| 03 | `03-voz.mp4` | 3:31 | 30 MB | A call interrupts; the teacher creates a reminder by voice |
-| 04 | `04-sugerencias-cobro.mp4` | 1:03 | 8 MB | AI song suggestions by taste/level, then charging the lesson |
+| # | File | Length | Size | Source | Chapter |
+|---|---|---|---|---|---|
+| 01 | `01-perfil.mp4` | 2:26 | 17 MB | `clip1.mp4` | Defining the student profile → better AI suggestions |
+| 02 | `02-clase.mp4` | 10:26 | 86 MB | `clip2.mp4` | Teaching with the live tools (whiteboard, recording, loop) |
+| 03 | `03-sugerencias.mp4` | 3:31 | 30 MB | `clip3.mp4` | AI suggestions for the next lesson + sending material to the student |
+| 04 | `04-llamada-cobro.mp4` | 1:03 | 8 MB | `clip4.mp4` | A call interrupts → voice reminder → the payment is recorded |
+
+Verified by sampling frames across each source: `clip4` is the one showing the teacher on
+the phone, the voice-reminder panel and the payments screen; `clip3` shows the material
+catalogue and song suggestions. Don't reorder these two on file name alone.
 
 Each has a poster (first-frame thumbnail) with the same name and a `.jpg` extension.
 All four are H.264 High / yuv420p, 1280×720 @ 30 fps, AAC 96 kbps, `faststart`.

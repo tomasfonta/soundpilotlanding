@@ -63,8 +63,8 @@ file isn't uploaded yet show a placeholder instead of a broken player — the se
 safe to deploy half-filled.
 
 The four clips are in `assets/demos/`, encoded H.264 720p30 with `faststart`:
-`01-perfil.mp4` (2:26), `02-clase.mp4` (10:26), `03-voz.mp4` (3:31) and
-`04-sugerencias-cobro.mp4` (1:03), each with a `.jpg` poster.
+`01-perfil.mp4` (2:26), `02-clase.mp4` (10:26), `03-sugerencias.mp4` (3:31) and
+`04-llamada-cobro.mp4` (1:03), each with a `.jpg` poster.
 
 The raw HEVC recordings (`clip1.mp4` … `clip4.mp4`) are git-ignored — **HEVC doesn't play
 in Chrome or Firefox**, so only the encoded versions above ever get published.
@@ -99,7 +99,7 @@ CSS hides whichever doesn't match `<html data-lang>`. The switcher persists the 
 | Pillars | — | Organise / catalogue / record |
 | Multi-cam | `#magia` | The differentiator: student watches their lesson being produced |
 | AI | `#ia` | Tag 15 files, AI does the rest; the 8 dimensions |
-| Demos | `#demos` | 4 chapter clips of a full lesson — see below |
+| Demos | `#demos` | 4 chapter clips of a full lesson: profile → teaching → AI suggestions → call &amp; payment |
 | Modules | `#modulos` | All 12 modules, tagged v1 / v2 |
 | Who + status | `#estado` | Honest fit, real project state, roadmap |
 | Feedback | `#feedback` | 4 research questions + form |
